@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+<video id="myVideo" autoplay>Fallback msg here.</video>
+<script>
+  if (navigator.getUserMedia) {
+    // запросить видео и аудио поток с веб-камеры пользователя
+    navigator.mediaDevices.getUserMedia({
+        audio: true,
+        video: true
+    }).then((stream) => {
+      var video = document.querySelector('#myVideo');
+      video.srcObject = stream;
+      video.play();
+    }).catch((error) => {
+      console.log('navigator.getUserMedia error: ', error);
+    });
+}
+</script>
+</body>
+</html>
