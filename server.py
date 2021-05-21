@@ -20,7 +20,6 @@ from av import VideoFrame
 from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
 from aiortc.contrib.media import MediaBlackhole, MediaPlayer, MediaRecorder, MediaRelay
 
-# construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-f", "--face", type=str,
 	default="face_detector",
@@ -60,7 +59,7 @@ class VideoTransformTrack(MediaStreamTrack):
     kind = "video"
 
     def __init__(self, track, transform):
-        super().__init__()  # don't forget this!
+        super().__init__()
         self.track = track
         self.transform = transform
 
